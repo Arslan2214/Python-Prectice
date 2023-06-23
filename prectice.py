@@ -1,0 +1,78 @@
+# 1. Age Checker
+# age = int(input('Enter Age: '))
+
+# if age > 18 :
+#     print('You are Not a Kid.')
+# else:
+#     print("You are a Kid.")
+
+#  --------------------------------
+
+# 2. Number Gussing Game
+
+# import sys
+# import random
+# def numGuess():
+#     num = random.randint(0, 25)
+#     chance = 8
+#     while (chance != 0):
+#         inp = int(input('Enter Number: '))
+#         if inp == num:
+#             return print(f'Correct, You win.... {num} is Right')
+#         else:
+#             if inp < num:
+#                 print('You Enter low number ')
+#             else:
+#                 print('You Enter High number ')
+
+#             chance -= 1
+#             print(f'You have {chance} left.')
+
+# numGuess()
+
+# -------------------------------
+
+# 3. Basic Calculator using Python
+
+# def calculator():
+#     num1 = int(input('Enter 1st Num: '))
+#     num2 = int(input('Enter 2nd Num: '))
+#     oper = str(input('Enter Opereration: '))
+
+#     if oper == '+':
+#         print(f'{num1} + {num2} = {num1 + num2}')
+#     elif oper == '-':
+#         print(f'{num1} - {num2} = {num1 - num2}')
+#     elif oper == '*':
+#         print(f'{num1} * {num2} = {num1 * num2}')
+#     elif oper == '/':
+#         print(f'{num1} / {num2} = {num1 / num2}')
+#     else:
+#         print(f'"{oper}" is Not Valid.')
+
+# calculator()
+
+# ----------------------------------
+
+# 4. Rolling Dice
+
+# import random
+
+# def dice():
+#     dice = int(input('Number of Dices:'))
+#     for i in range(dice):
+#         side = int(input('Enter Sides:'))
+#         print(f'{i+1}\'s Dice: {random.randint(1, side)}')
+
+# dice()
+
+# -----------------------------------
+
+# Hangman Game --> Word Guess
+
+import random_word
+
+r = random_word.RandomWords()
+
+def word():
+    wrd = r.get_random_word()
