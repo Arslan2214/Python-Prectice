@@ -89,5 +89,6 @@ def generate_code(length):
     return code
 
 # Generate a 6-character code
+num = int(input('Enter Code-Length:'))
 generated_code = generate_code(6)
 print(generated_code)
