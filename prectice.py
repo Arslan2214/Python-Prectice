@@ -68,11 +68,26 @@
 
 # -----------------------------------
 
-# Hangman Game --> Word Guess
+# 5. Hangman Game --> Word Guess
 
-import random_word
+# import random_word
 
-r = random_word.RandomWords()
+# r = random_word.RandomWords()
 
-def word():
-    wrd = r.get_random_word()
+# def word():
+#     wrd = r.get_random_word()
+
+
+# --------------------------------
+
+# 6. Generate Code Function
+import random
+import string
+
+def generate_code(length):
+    code = ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+    return code
+
+# Generate a 6-character code
+generated_code = generate_code(6)
+print(generated_code)
