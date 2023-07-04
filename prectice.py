@@ -1,6 +1,6 @@
 # 1. Age Checker
-# age = int(input('Enter Age: '))
 
+# age = int(input('Enter Age: '))
 # if age > 18 :
 #     print('You are Not a Kid.')
 # else:
