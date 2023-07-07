@@ -69,19 +69,8 @@
 
 # -----------------------------------
 
-# 5. Hangman Game --> Word Guess
 
-# import random_word
-
-# r = random_word.RandomWords()
-
-# def word():
-#     wrd = r.get_random_word()
-
-
-# --------------------------------
-
-# 6. Generate Code Function
+# 5. Generate Code Function
 import random
 import string
 
