@@ -93,17 +93,17 @@ if (op == '+')
 {
     print(f"{num1} + {num2}: {num1 + num2}")
 }
-elif (op == '+')
+elif (op == '-')
 {
-    print(f"{num1} + {num2}: {num1 + num2}")
+    print(f"{num1} - {num2}: {num1 - num2}")
 }
-elif (op == '+')
+elif (op == '*' or op == 'x' or op == 'X' )
 {
-    print(f"{num1} + {num2}: {num1 + num2}")
+    print(f"{num1} x {num2}: {num1 * num2}")
 }
-elif (op == '+')
+elif (op == '/')
 {
-    print(f"{num1} + {num2}: {num1 + num2}")
+    print(f"{num1} / {num2}: {num1 / num2}")
 }
 else
 {
