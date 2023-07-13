@@ -86,3 +86,4 @@ print(generated_code)
 # -------------------------------
 
 # 6. Basic Calculator
+num1 = int(input('Enter 1st Num:'))
