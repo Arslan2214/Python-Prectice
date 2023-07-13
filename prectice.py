@@ -93,15 +93,19 @@ if (op == '+')
 {
     print(f"{num1} + {num2}: {num1 + num2}")
 }
-if (op == '+')
+elif (op == '+')
 {
     print(f"{num1} + {num2}: {num1 + num2}")
 }
-if (op == '+')
+elif (op == '+')
 {
     print(f"{num1} + {num2}: {num1 + num2}")
 }
-if (op == '+')
+elif (op == '+')
 {
     print(f"{num1} + {num2}: {num1 + num2}")
+}
+else
+{
+
 }
