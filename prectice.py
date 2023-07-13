@@ -87,4 +87,4 @@ print(generated_code)
 
 # 6. Basic Calculator
 num1 = int(input('Num1:'))
-num2 = int(input('Enter 2nd Num:'))
+num2 = int(input('Num2:'))
