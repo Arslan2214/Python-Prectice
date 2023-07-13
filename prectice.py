@@ -88,3 +88,4 @@ print(generated_code)
 # 6. Basic Calculator
 num1 = int(input('Num1:'))
 num2 = int(input('Num2:'))
+op = input('Op:')
