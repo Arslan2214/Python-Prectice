@@ -89,3 +89,7 @@ print(generated_code)
 num1 = int(input('Num1:'))
 num2 = int(input('Num2:'))
 op = input('Op:')
+if (op == '+')
+{
+    print(f"{num1} + {num2}: {num1 + num2}")
+}
