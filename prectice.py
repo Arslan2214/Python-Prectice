@@ -84,3 +84,5 @@ generated_code = generate_code(6)
 print(generated_code)
 
 # -------------------------------
+
+# 6. Basic Calculator
