@@ -83,4 +83,4 @@ num = int(input('Enter Code-Length:'))
 generated_code = generate_code(6)
 print(generated_code)
 
-# ---------------------------
+# -------------------------------
