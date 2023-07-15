@@ -1,4 +1,4 @@
-# ---- Aing Projects ----
+# ---- Ageing Projects ----
 
 # 1. Age Checker
 # age = int(input('Enter Age: '))
