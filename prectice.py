@@ -9,6 +9,7 @@
 
 
 
+
 # 1. Age Checker
 # age = int(input('Enter Age: '))
 # if age > 18 :
