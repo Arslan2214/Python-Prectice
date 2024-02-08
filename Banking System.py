@@ -3,7 +3,7 @@
 
 print("\n\n\t\tWelcome to JS Bank\n\n")
 
-accounts = []
+accounts = []      # Accounts Container
 
 def loginAccount():
     name = input("Enter Your Name: ")
