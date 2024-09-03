@@ -1,6 +1,6 @@
 # Python Projects Repository
 
-Welcome to the Python Projects Repository! This repository is a collection of Python projects that demonstrate various functionalities and coding techniques. Each project includes a description, usage instructions, and sample code. Feel free to explore, clone, and contribute to any of the projects you find interesting.
+Welcome to the Python Projects Repository! This repository is a collection of Python projects that illustrate various functionalities and coding techniques. Each project includes a description, usage instructions, and sample code. Feel free to explore, clone, and contribute to any of the projects you find interesting. I'll appreciate your interest in my projects.
 
 ## Table of Contents
 
