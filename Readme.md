@@ -56,7 +56,7 @@ This project extracts phone numbers and email addresses from text and formats th
 
    ```
 
-### 1. Calculator (GUI-based)
+### 2. Calculator (GUI-based)
 
 **Description:**  
 This project is graphical calculator, Not too advanced just a basic calculator with all operations `+`, `-`, `/` & `*` with equal and clear.
