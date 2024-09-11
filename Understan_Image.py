@@ -1,78 +1,84 @@
-import tkinter as tk
-from tkinter import filedialog
-import fitz  # PyMuPDF
 import pytesseract
 from PIL import Image
-import pandas as pd
+import tkinter as tk
+from tkinter import filedialog
 import json
-import os
 
-# Function to extract text from images using pytesseract
+# Ensure pytesseract is pointed to the tesseract executable if needed
+# Example for Windows:
+# pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+
+# Function to extract text from an image
 def extract_text_from_image(image_path):
-    image = Image.open(image_path)
-    text = pytesseract.image_to_string(image)
+    img = Image.open(image_path)
+    text = pytesseract.image_to_string(img, lang='eng+urd')  # Add urdu if needed
     return text
 
-# Function to extract text from PDF using PyMuPDF
-def extract_text_from_pdf(pdf_path):
-    doc = fitz.open(pdf_path)
-    text = ""
-    for page in doc:
-        pix = page.get_pixmap()
-        img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
-        text += pytesseract.image_to_string(img)
-    return text
-
-# Function to parse the extracted text and organize into key-value pairs (JSON-like format)
+# Function to parse the OCR text into a JSON-like format
 def parse_table_to_json(text):
+    # Split the OCR text into rows
     rows = text.strip().split("\n")
     
-    # Assuming the first row contains column names
-    columns = rows[0].split()
     data = []
-    
-    for row in rows[1:]:
+
+    # Assuming the first row is header, ignore it and parse the next rows for data
+    for row in rows:
+        # Split row into individual entries (space-separated in OCR output)
         entries = row.split()
-        if len(entries) == len(columns):
-            entry = {columns[i]: entries[i] for i in range(len(columns))}
-            data.append(entry)
+        
+        if len(entries) >= 8:  # Ensure row has enough entries
+            try:
+                # Map the table structure to a JSON-like format
+                entry = {
+                    "Serial Number": entries[0],
+                    "Child's Name": entries[1] + " " + entries[2],  # Some names are split
+                    "Father's Name": entries[3],
+                    "Age": entries[4] + " " + entries[5],  # Combine year/month info
+                    "DTP Booster": entries[6],
+                    "MR-2": entries[7],
+                    "MR-1": entries[8],
+                    "Penta-3": entries[9],
+                    "Penta-2": entries[10],
+                    "Penta-1": entries[11],
+                    "Vaccination Date": entries[12],
+                    "Contact Number": entries[13]
+                }
+                data.append(entry)
+            except IndexError:
+                # Handle rows that don't have enough data
+                pass
     
     return data
 
-# Function to select a file and analyze
-def analyze_file():
+# Function to open a file using GUI and process it
+def process_image_file():
+    # GUI for selecting an image file
     root = tk.Tk()
     root.withdraw()  # Hide the root window
     file_path = filedialog.askopenfilename(
-        title="Select a PDF or Image file",
-        filetypes=[("PDF files", "*.pdf"), ("Image files", "*.png;*.jpg;*.jpeg")]
+        title="Select an Image file",
+        filetypes=[("Image files", "*.png;*.jpg;*.jpeg;*.bmp;*.tiff;*.tif")]
     )
     
     if not file_path:
         print("No file selected.")
         return
+
+    # Extract text using pytesseract
+    text = extract_text_from_image(file_path)
     
-    extension = os.path.splitext(file_path)[1].lower()
+    # Parse the table into JSON-like format
+    parsed_data = parse_table_to_json(text)
     
-    if extension == '.pdf':
-        text = extract_text_from_pdf(file_path)
-    elif extension in ['.png', '.jpg', '.jpeg']:
-        text = extract_text_from_image(file_path)
-    else:
-        print("Unsupported file type!")
-        return
-    
-    data = parse_table_to_json(text)
-    
-    # Output the JSON-like format
-    json_output = json.dumps(data, indent=4)
+    # Output the JSON-like structure
+    json_output = json.dumps(parsed_data, indent=4, ensure_ascii=False)
     print(json_output)
-    
+
     # Optionally, save to a file
-    with open("output.json", "w") as f:
+    with open("output.json", "w", encoding="utf-8") as f:
         f.write(json_output)
     print("Data saved to output.json")
 
 # Run the program
 if __name__ == "__main__":
-    analyze_file()
+    process_image_file()
