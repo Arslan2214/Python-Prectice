@@ -1,5 +1,4 @@
-# -----------------------------
-# Banking Managment System 
+# ------------------- Banking Managment System ------------------ 
 
 print("\n\n\t\tWelcome to JS Bank\n\n")
 
